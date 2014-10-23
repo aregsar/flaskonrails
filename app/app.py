@@ -27,6 +27,12 @@ def create_app():
     #register blueprints
     register_blueprints(app)
 
+
+
+
+    #use the app_errorhandler function in specific xxx_responder.py modules
+    #for blueprint specific error hanldling
+
     print app.url_map
 
     return app

@@ -56,9 +56,11 @@ I did find some boilerplates that used
 blueprints to divide larger apps into more restful resource oriented structure similar to rails resource
 controllers
 but almost all did not go all the way in seperating out app concerns into their own folder structure and
-there was some level of Ad-hoc ness in their designs. I also found none that were opinionated enough to integrate
-a set
-of recommended extensions to provide complete application design functionality.
+there was some level of Ad-hoc ness in their designs, throwing things into __init__.py methods and bunching together
+unrelated components in a single file or not organizing models,forms, etc. in their own separe files and directories.
+I also found none that were opinionated enough to integrate a set
+of recommended extensions to provide complete application design functionality. Finally none had an lightwaight
+integrated token based authentication\user account system which almost all web applications these days need.
 
 So I came to the conslusion that extracting a framework from my real world application would be the
 right thing to do, to build a framework that is more well thought out from
@@ -89,6 +91,7 @@ in ruby on rails)
 -support for Flask app factory for app testing
 -support for tasks running under Flask app context
 -supprort for standard Flask extensions via the plugins.py file
+-all empty __init__.py modules. No need to guess what app functionality is burried in some __init__.py file
 -ruby on rails active record database mogrations(litterally!)
 -scripts to support setting up virtual env, installing packages based on requirements.txt, setting
 up postgres database and sqlalchemy connection string env variable
@@ -122,7 +125,14 @@ React.js and kinetic.js for front end development. I am interested in devops as 
 AWS automation, immmutable infrastructire and Docker.
 So if you have Flask projects that you are looking to staff you can contact me at xxxxxx.
 
-
+---------------------
+Comming features:
+Mailers
+Restful API support
+Paging and load more support
+search support
+caching supports
+data access query templates
 
 
 

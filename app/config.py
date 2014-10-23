@@ -15,19 +15,23 @@ class Config:
     #use os.environ.get('ENV_VAR_NAME') to raise exception for missing env var
     #use os.environ['ENV_VAR_NAME'] to return None default for missing env var
     #use bool(os.environ.get('ENV_VAR_NAME')) for True\False env vars
+    #Flask or some of its extensions internaly use the following config var names:
+    #so don't change their names as specified in this class
+    #DEBUG, SECRET_KEY
 
     #example bash env var setting:
     #export MYAPP_ENV=DEV
     #ENV options : "DEV" or "TEST" or "STAGE" or "PROD"
-    ENV = os.environ.get('MYAPP_ENV')
+    # ENV = os.environ.get('MYAPP_ENV')
 
     #example bash env var setting:
     #export MYAPP_DEBUG=True
-    DEBUG = bool(os.environ.get('MYAPP_DEBUG'))
+    # DEBUG = bool(os.environ.get('MYAPP_DEBUG'))
+    DEBUG=True
 
     #example bash env var setting:
     #export MYAPP_DEBUG_TB_INTERCEPT_REDIRECTS=False
-    DEBUG_TB_INTERCEPT_REDIRECTS = bool(os.environ.get('MYAPP_DEBUG_TB_INTERCEPT_REDIRECTS'))
+    # DEBUG_TB_INTERCEPT_REDIRECTS = bool(os.environ.get('MYAPP_DEBUG_TB_INTERCEPT_REDIRECTS'))
 
     #secret key generation from python shell
     #import os
@@ -36,7 +40,8 @@ class Config:
 
     #example bash env var setting:
     #export MYAPP_SECRET_KEY='\xbd3\xb3\xbcD\xe9)"H\xa1\x80\x05\xc6\xe8\xc0\xc4\xfd\x13%c\xe4\xc8oD'
-    SECRET_KEY = os.environ['MYAPP_SECRET_KEY']
+    # SECRET_KEY = os.environ['MYAPP_SECRET_KEY']
+    SECRET_KEY="secret"
 
     #example bash env var setting:
     #export MYAPP_SSL_DISABLE=False
@@ -48,9 +53,9 @@ class Config:
     #to the database
     #example bash env var setting:
     #export DATABASE_URL='postgres://localhost/myappdb'
-    SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
-    SQLALCHEMY_COMMIT_ON_TEARDOWN = True
-    SQLALCHEMY_RECORD_QUERIES = True
+    # SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
+    # SQLALCHEMY_COMMIT_ON_TEARDOWN = True
+    # SQLALCHEMY_RECORD_QUERIES = True
     #SQLALCHEMY_ECHO = True
 
 
