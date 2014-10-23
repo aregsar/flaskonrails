@@ -8,9 +8,12 @@ the simplicity and low magic level of the Flask framework and also remaining tru
 to the Pythonic way. It is mostly about providing a well known application structure and integrating an
 opinionated set of Flask extensions and other design patterns for building
 large web applications, so that a developer new to the framework can jump in an be productive
-from right away and have a set of conventions to follow to be able to add and change features
-more rapidly. It also includes a set of scripts to get setup and up and running with a backing
-github code repo and postgres database and Heroku instantly.(provided you have git hosting and have installed
+right away and have a set of conventions to follow to be able to add and change features
+more rapidly yet not have the application framework get in his or her own way.
+The framework includes a set of sane defaults and functionality that can be removed or changed any way
+the user pleases with very little effort.
+It also includes a set of scripts to get the application setup and up and running with a backing
+github code repo and postgres database with Heroku deployment instantly.(provided you have git hosting and have installed
 git and PostGres. - I have also included helper scripts for installing git,postgres,python and virtualenv on a Mac)
 
 Before diving into the Framework details I want to take a moment to extend my sincere appreciation

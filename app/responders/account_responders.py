@@ -5,10 +5,9 @@ res = Blueprint('account',__name__)
 
 
 @res.route('/signout')
-def signin():
+def signout():
     #TODO: Signout Current User
     return redirect(url_for('home.index'))
-
 
 @res.route('/signin')
 def signin():
@@ -17,6 +16,16 @@ def signin():
 @res.route('/account/signup')
 def signup():
         return render_template("account/signup.html")
+
+@res.route('/account/details')
+def details():
+        return render_template("account/details.html")
+
+@res.route('/account/edit')
+def edit():
+        #form = EditAccountForm()
+        #return render_template("account/edit.html",form=form)
+        return render_template("account/edit.html")
 
 @res.route('/password/forgot')
 def forgot_password():
@@ -27,11 +36,4 @@ def forgot_password():
 def reset_password():
         return render_template("account/reset_password.html")
 
-@res.route('/account/signup')
-def signup():
-        return render_template("account/signup.html")
-
-@res.route('/account/signup')
-def signup():
-        return render_template("account/signup.html")
 
