@@ -132,9 +132,10 @@ So if you have Flask projects that you are looking to staff you can contact me a
 Comming features:
 Mailers
 Restful API support
-Paging and load more support
+Paging support
+feeds with load more support
 search support
-caching supports
+caching support
 data access query templates
 
 
