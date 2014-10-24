@@ -3,37 +3,90 @@ from flask.ext.login import current_user
 #bluprint is registered in module app.blueprints.py
 res = Blueprint('account',__name__)
 
+signin_failed_message = "username or password was not valid. please try again"
+
+@res.route('/account/notfound')
+def notfound():
+    return render_template("account/not_found.html")
+
+@res.route('/signup')
+def signup_form():
+    form = SignupForm()
+    return render_template("account/signup_form.html",form=form)
+
+@res.route('/signup', methods=['POST'])
+def signup():
+    form = SignupForm()
+    if form.validate_on_submit():
+        user, signup_error = User.signup(form)
+        if user:
+            #AccountMailer.send_account_confirmation_email(current_app.config, user)
+            return redirect(url_for('home.index'))
+        flash(signup_error)
+    return render_template("account/signup_form.html",form=form)
+
+@res.route('/signin')
+def signin_form():
+    form = SigninForm()
+    return render_template("account/signin_form.html",form=form)
+
+@res.route('/signin', methods=['POST'])
+def signin():
+    form = SigninForm()
+    if form.validate_on_submit():
+        if User.signin(form):
+            return redirect(url_for('home.index'))
+        flash(signin_failed_message)
+    return render_template("account/signin_form.html",form=form)
 
 @res.route('/signout')
 def signout():
-    #TODO: Signout Current User
+    #User.signout()
     return redirect(url_for('home.index'))
 
-@res.route('/signin')
-def signin():
-        return render_template("account/signin.html")
-
-@res.route('/account/signup')
-def signup():
-        return render_template("account/signup.html")
-
-@res.route('/account/details')
-def details():
-        return render_template("account/details.html")
-
-@res.route('/account/edit')
-def edit():
-        #form = EditAccountForm()
-        #return render_template("account/edit.html",form=form)
-        return render_template("account/edit.html")
-
-@res.route('/password/forgot')
-def forgot_password():
-        return render_template("account/forgot_password.html")
+@res.route('/account/<id>')
+def details(id):
+    user = User.Get(id)
+    if not user:
+        #return redirect(url_for('account.not_found'))
+        return render_template("account/not_found.html")
+    return render_template("account/details.html",user=user)
 
 
-@res.route('/password/reset')
-def reset_password():
-        return render_template("account/reset_password.html")
+
+# @res.route('/password/forgot')
+# def forgot_password_form():
+#     return render_template("account/forgot_password_form.html")
+
+# @res.route('/password/forgot', methods=['POST'])
+# def forgot_password():
+#     return render_template("account/forgot_password_form.html")
+
+# @res.route('/password/reset')
+# def reset_password_form():
+#     return render_template("account/reset_password_form.html")
+
+# @res.route('/password/reset', methods=['POST'])
+# def reset_password():
+#     return render_template("account/reset_password_form.html")
+
+# @res.route('/account/<id>/edit/email')
+# def edit_email_form():
+#     return render_template("account/edit_email_form.html")
+
+# @res.route('/account/<id>/edit/email', methods=['POST'])
+# def edit_email():
+#     return render_template("account/edit_email_form.html")
+
+# @res.route('/account/<id>/edit/settings')
+# def edit_settings_form():
+#     return render_template("account/edit_settings_form.html")
+
+# @res.route('/account/<id>/edit/settings', methods=['POST'])
+# def edit_settings():
+#     return render_template("account/edit_settings_form.html")
+
+
+
 
 
