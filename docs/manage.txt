@@ -1,0 +1,24 @@
+#! /bin/bash
+
+#
+#judge
+#launch project launch server and browser at localhost
+#
+cd ~/flaskprojects/judge
+. venv/bin/activate
+subl .
+open -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome http://localhost:5000
+python manage.py runserver --host 0.0.0.0
+
+#
+#serve
+#launch server and browser at localhost
+#
+open -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome http://localhost:5000
+python app.py runserver --host 0.0.0.0
+
+#
+#browse
+#launch chrome browser at localhost
+#
+open -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome http://localhost:5000

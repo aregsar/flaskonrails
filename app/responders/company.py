@@ -12,9 +12,13 @@ res = Blueprint('company',__name__)
 def not_found(e):
     return render_template("company/404.html")
 
+#@res.route('/company')
+def index():
+        return "company"
+        #abort(404)
+        #return render_template("company/index.html")
 
-
-@res.route('/about')
+#@res.route('/about')
 def about():
         return render_template("company/about.html")
 
