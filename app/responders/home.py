@@ -1,4 +1,5 @@
-from flask import Blueprint, render_template, g, current_app, url_for
+from flask import Blueprint, g, current_app, url_for
+from flask import render_template, request, abort, jsonify
 from flask.ext.login import current_user
 # from forms.account.signup import SignupForm
 # from forms.account.search import SearchForm
@@ -19,6 +20,8 @@ def abort():
 
 @res.route('/')
 def index():
+    # if ENV.is_dev():
+    #     pass
     return render_template("account/signup.html")
     #return render_template("home/dashboard.html",form=form)
     # if current_user.is_authenticated():

@@ -39,15 +39,15 @@ def add_url_rules(app):
     # account.res.add_url_rule('/signin', view_func=account.signin, methods=['POST'])
     # account.res.add_url_rule('/account/notfound', view_func=account.notfound)
     # account.res.add_url_rule('/signout', view_func=account.signout)
-    # account.res.add_url_rule('/account/<id>', view_func=account.details)
+    # account.res.add_url_rule('/account/<int:id>', view_func=account.details)
     # account.res.add_url_rule('/password/forgot', view_func=account.forgot_password_form)
     # account.res.add_url_rule('/password/forgot', view_func=account.forgot_password_form, methods=['POST'])
     # account.res.add_url_rule('/password/reset', view_func=account.reset_password_form)
     # account.res.add_url_rule('/password/reset', view_func=account.reset_password_form, methods=['POST'])
-    # account.res.add_url_rule('/account/<id>/edit/email', view_func=account.edit_email_form)
-    # account.res.add_url_rule('/account/<id>/edit/email', view_func=account.edit_email_form, methods=['POST'])
-    # account.res.add_url_rule('/account/<id>/edit/email', view_func=account.edit_settings_form)
-    # account.res.add_url_rule('/account/<id>/edit/email', view_func=account.edit_settings_form, methods=['POST'])
+    # account.res.add_url_rule('/account/<int:id>/edit/email', view_func=account.edit_email_form)
+    # account.res.add_url_rule('/account/<int:id>/edit/email', view_func=account.edit_email_form, methods=['POST'])
+    # account.res.add_url_rule('/account/<int:id>/edit/email', view_func=account.edit_settings_form)
+    # account.res.add_url_rule('/account/<int:id>/edit/email', view_func=account.edit_settings_form, methods=['POST'])
 
 
 

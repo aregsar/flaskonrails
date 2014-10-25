@@ -1,4 +1,5 @@
 import os
+from flask import current_app
 
 """
 single configuration class for all environments
@@ -10,6 +11,11 @@ A separate bash script that is not checked in to public
 source control repo, should be created for each environment
 which will set the environmet vars for that specific environment
 """
+class ENV:
+    @staticmethod
+    def is_dev():
+        return current_app.config['ENV'] == 'DEV'
+
 class Config:
     #use bash commands env or printenv to show current env var settings
     #use os.environ.get('ENV_VAR_NAME') to raise exception for missing env var
@@ -23,6 +29,7 @@ class Config:
     #export MYAPP_ENV=DEV
     #ENV options : "DEV" or "TEST" or "STAGE" or "PROD"
     # ENV = os.environ.get('MYAPP_ENV')
+    ENV="DEV"
 
     #example bash env var setting:
     #export MYAPP_DEBUG=True

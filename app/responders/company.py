@@ -1,4 +1,5 @@
-from flask import Blueprint, render_template, g, current_app
+from flask import Blueprint, g, current_app, url_for
+from flask import render_template, request, abort, jsonify
 from flask.ext.login import current_user
 #bluprint is registered in module app.blueprints.py
 res = Blueprint('company',__name__)

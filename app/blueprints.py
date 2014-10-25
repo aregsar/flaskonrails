@@ -9,3 +9,6 @@ def register_blueprints(app):
     app.register_blueprint(account.res)
 
 
+    #print home.res.root_path
+
+

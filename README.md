@@ -138,6 +138,23 @@ search support
 caching support
 data access query templates
 
+Flask on rails is a MTR (Model Template Responder) framework
+as apposed to the standard Flask MTV (Model Template View) framwork
+or the standard Ruby on Rails MVC (Model View Controller) framework.
+
+The Flask on Rails Template is the equivalent the Flask Template which is the equivalent of the Ruby on Rails View.
+The Flask on Rails Responder is the equivalent of the Flask View which is the equivalent of the Ruby on Rails Controller.
+
+I found the use of the term View in Flask and other Python frameworks as
+a component that handels processing of http requests confusing.
+Also since Flask on Rails does not have a class that encapsulates request handlers
+the use of the word controller did not seem appropriate.
+
+In flask on rails parlance a responder is a function that responds to a
+http request by performing some action and returning a http response that
+contains the results of the performed action in the form of html or Json string.
+responder functions are split into separate files by resource.
+
 
 
 

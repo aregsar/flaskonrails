@@ -1,4 +1,5 @@
-from flask import Blueprint, render_template, g, current_app
+from flask import Blueprint, g, current_app, url_for
+from flask import render_template, request, abort, jsonify
 from flask.ext.login import current_user
 #bluprint is registered in module app.blueprints.py
 res = Blueprint('account',__name__)
@@ -44,7 +45,7 @@ def signout():
     #User.signout()
     return redirect(url_for('home.index'))
 
-@res.route('/account/<id>')
+@res.route('/account/<int:id>')
 def details(id):
     user = User.Get(id)
     if not user:
@@ -70,19 +71,19 @@ def details(id):
 # def reset_password():
 #     return render_template("account/reset_password_form.html")
 
-# @res.route('/account/<id>/edit/email')
+# @res.route('/account/<int:id>/edit/email')
 # def edit_email_form():
 #     return render_template("account/edit_email_form.html")
 
-# @res.route('/account/<id>/edit/email', methods=['POST'])
+# @res.route('/account/<int:id>/edit/email', methods=['POST'])
 # def edit_email():
 #     return render_template("account/edit_email_form.html")
 
-# @res.route('/account/<id>/edit/settings')
+# @res.route('/account/<int:id>/edit/settings')
 # def edit_settings_form():
 #     return render_template("account/edit_settings_form.html")
 
-# @res.route('/account/<id>/edit/settings', methods=['POST'])
+# @res.route('/account/<int:id>/edit/settings', methods=['POST'])
 # def edit_settings():
 #     return render_template("account/edit_settings_form.html")
 

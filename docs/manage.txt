@@ -22,3 +22,60 @@ python app.py runserver --host 0.0.0.0
 #launch chrome browser at localhost
 #
 open -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome http://localhost:5000
+
+=======================
+
+from flask import current_app
+import flask_feature_flags
+
+class App
+   @staticmethod
+   def Secret_Key
+        return current_app.config['SECRET_KEY']
+
+   @ is_xxx_feature_active()
+        return current_app.config['MyApp_Feature_XXX' ]:
+
+class Config
+       #default to false unless env var is defined
+        MyApp_Feature_XXX=os.get.env('MyApp_Feature_XXX')
+
+class ENV
+    @staticmethod
+    def is_dev()
+          return current_app.config['MyApp_ENV']== 'DEV':
+    @staticmethod
+    def is_prod
+          return current_app.config['MyApp_ENV'] == 'PROD':
+    @staticmethod
+     def is_test()
+          return current_app.config['MyApp_ENV'] == 'TEST':
+
+   @staticmethod
+     def is_debug()
+          #return boolean value
+          return current_app.config['Flask_DEBUG']:
+
+home.res.root_path
+url_for('admin.static', filename='style.css')
+pip install flask peewee
+from peewee import SqliteDatabase
+db = SqliteDatabase(app.config['DATABASE'], threadlocals=True)
+from peewee import *
+class Note(Model):
+    content = TextField()
+    timestamp = DateTimeField(default=datetime.datetime.now)
+    archived = BooleanField(default=False)
+    class Meta:
+        database = db
+
+from flask import  render_template, request, abort, jsonify
+@app.route('/archive/<int:pk>/', methods=['POST'])
+def archive_note(pk):
+    try:
+        note = Note.get(Note.id == pk)
+    except Note.DoesNotExist:
+        abort(404)
+    note.archived = True
+    note.save()
+    return jsonify({'success': True})
