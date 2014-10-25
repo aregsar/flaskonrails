@@ -8,27 +8,30 @@ from responders import account
 #or you can use a combination of both
 def add_url_rules(app):
     """
-    #examples:
-    #home.res.add_url_rule('/',view_func=home.index) #url_for('home.index')
-    #home.res.add_url_rule('/', endpoint='index',view_func=home.index) #url_for('home.index')
-    #home.res.add_url_rule('/', endpoint='uniquename_per_blueprint',view_func=home.index) #url_for('home.uniquename_per_blueprint')
+    #to generate reverse mapping for defined mappings, with the flask url_for function,
+    #the general form is: url_for('blueprint.endpoint')
+
+    #examples with and without explicit endpoint specified:
+
+    #with mapping defined below you can use url_for('home.index') to generate URL '/'
+    #defaults endpoint to "index"
+    #home.res.add_url_rule('/', view_func=home.index)
+
+    #with mapping defined below you can also use url_for('home.index') to generate URL '/'
+    #explicit endpoint specified as "index"
+    #home.res.add_url_rule('/', view_func=home.index, endpoint='index')
+
+    #with mapping defined below you can use url_for('home.some_unique_name_for_home_blueprint') to generate URL '/'
+    #home.res.add_url_rule('/', view_func=home.index, endpoint='any_unique_name_scoped_by_home_blueprint')
+
+    #other examples with HTTP verbs and default parameters
+    #post.res.add_url_rule('/posts/<id>', view_func=post.index, methods=['GET','POST'])
+    #post.res.add_url_rule('/posts/<id>', view_func=post.index, defaults={'id': None})
     #post.res.add_url_rule('/posts/<id>', view_func=post.index, defaults={'id': None}, methods=['GET','POST'])
     #post.res.add_url_rule('/posts/<id>', endpoint='index',view_func=post.index, defaults={'id': None}, methods=['GET','POST'])
-
-    #notes:
-    #view_func is the actual responder function prefixed by the blueprint name
-    #endpoint if specified can be any unique name per bluepring.
-    #Generally the responder function name is used.
-    #if the endpoint is not specified then it defaults to the responder function name
-    #you can explicitly name the endpoint the same as the responder function name
-    #to get the same url_for('home.index')
-    #home.res.add_url_rule('/', endpoint='index',view_func=home.index)
-    #you can explicitly name the endpoint something other then the responder function name
-    #but then you must use that name in url_for('home.dashboard') to get URL
-    #Note this will override the default endpoint and url_for('home.index') will not resolve anymore
-    #home.res.add_url_rule('/', endpoint='dashboard',view_func=home.index)
     """
-    # uncomment to use instead of or in combination with attribute based url routes
+
+    # uncomment below to use instead of or in combination with attribute based url routes
     # home.res.add_url_rule('/', view_func=home.index)
     # company.res.add_url_rule('/about', view_func=company.about)
     # account.res.add_url_rule('/signup', view_func=account.signup_form)
