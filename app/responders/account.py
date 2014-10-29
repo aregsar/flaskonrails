@@ -15,32 +15,32 @@ def notfound():
 
 @res.route('/signup')
 def signup_form():
-    form = SignupForm()
+    form = None #SignupForm()
     return render_template("account/signup_form.html",form=form)
 
 @res.route('/signup', methods=['POST'])
 def signup():
-    form = SignupForm()
-    if form.validate_on_submit():
-        user, signup_error = User.signup(form)
-        if user:
-            #AccountMailer.send_account_confirmation_email(current_app.config, user)
-            return redirect(url_for('home.index'))
-        flash(signup_error)
+    form = None #SignupForm()
+    # if form.validate_on_submit():
+    #     user, signup_error = User.signup(form)
+    #     if user:
+    #         #AccountMailer.send_account_confirmation_email(current_app.config, user)
+    #         return redirect(url_for('home.index'))
+    #     flash(signup_error)
     return render_template("account/signup_form.html",form=form)
 
 @res.route('/signin')
 def signin_form():
-    form = SigninForm()
+    form = None #SigninForm()
     return render_template("account/signin_form.html",form=form)
 
 @res.route('/signin', methods=['POST'])
 def signin():
-    form = SigninForm()
-    if form.validate_on_submit():
-        if User.signin(form):
-            return redirect(url_for('home.index'))
-        flash(signin_failed_message)
+    form = None #SigninForm()
+    # if form.validate_on_submit():
+    #     if User.signin(form):
+    #         return redirect(url_for('home.index'))
+    #     flash(signin_failed_message)
     return render_template("account/signin_form.html",form=form)
 
 @res.route('/signout')
@@ -50,12 +50,11 @@ def signout():
 
 @res.route('/account/<int:id>')
 def details(id):
-    user = User.Get(id)
-    if not user:
-        #return redirect(url_for('account.not_found'))
-        return render_template("account/not_found.html")
+    user = None #User.Get(id)
+    # if not user:
+    #     #return redirect(url_for('account.not_found'))
+    #     return render_template("account/not_found.html")
     return render_template("account/details.html",user=user)
-
 
 
 @res.route('/password/forgot')
@@ -75,19 +74,19 @@ def reset_password():
     return render_template("account/reset_password_form.html")
 
 @res.route('/account/<int:id>/edit/email')
-def edit_email_form():
+def edit_email_form(id):
     return render_template("account/edit_email_form.html")
 
 @res.route('/account/<int:id>/edit/email', methods=['POST'])
-def edit_email():
+def edit_email(id):
     return render_template("account/edit_email_form.html")
 
 @res.route('/account/<int:id>/edit/settings')
-def edit_settings_form():
+def edit_settings_form(id):
     return render_template("account/edit_settings_form.html")
 
 @res.route('/account/<int:id>/edit/settings', methods=['POST'])
-def edit_settings():
+def edit_settings(id):
     return render_template("account/edit_settings_form.html")
 
 

@@ -52,7 +52,7 @@ def setup_request_filters(app):
     @app.before_request
     def app_before_request():
         print url_for('home.index')
-        print url_for('company.index')
+        print url_for('company.about')
         #pass
 
     #fires after every non aborted request

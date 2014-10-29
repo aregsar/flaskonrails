@@ -1,6 +1,11 @@
 import os
 from flask import current_app
 
+class ENV:
+    @staticmethod
+    def is_dev():
+        return current_app.config['ENV'] == 'DEV'
+
 """
 single configuration class for all environments
 defines all keys that will exist in all environments
@@ -11,10 +16,7 @@ A separate bash script that is not checked in to public
 source control repo, should be created for each environment
 which will set the environmet vars for that specific environment
 """
-class ENV:
-    @staticmethod
-    def is_dev():
-        return current_app.config['ENV'] == 'DEV'
+
 
 class Config:
     #use bash commands env or printenv to show current env var settings
