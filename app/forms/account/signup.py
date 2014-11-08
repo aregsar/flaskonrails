@@ -1,1 +1,3 @@
-signup.py
+
+class SignupForm:
+    pass

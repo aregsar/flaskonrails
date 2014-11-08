@@ -5,40 +5,48 @@ from routes import add_url_rules
 from blueprints import register_blueprints
 from plugins import init_plugins
 
+#does not work
+#from app.models.user import User
+#but this works
+from models.user import User
+#this does not work here but works from app.models.user module
+#from app.models.account import Account
+#but this works
+from models.account import Account
 
 def create_app():
     #
     #create the root application context
-    app = Flask(__name__)
+    aapp = Flask(__name__)
 
     #
     #configure application(before initializing plugins)
-    app.config.from_object(Config)
+    aapp.config.from_object(Config)
 
     #
     #setup flask extensions
-    init_plugins(app)
+    init_plugins(aapp)
 
     #
     #add any aditional url routing rules (before registering blueprints)
-    add_url_rules(app)
+    add_url_rules(aapp)
 
     #
     #register blueprints
-    register_blueprints(app)
+    register_blueprints(aapp)
 
     #
     #install application wide request filters
-    setup_request_filters(app)
+    setup_request_filters(aapp)
 
     #
     #install application wide error handlers
-    setup_app_error_handlers(app)
+    setup_app_error_handlers(aapp)
 
     #list mapped routes
-    print app.url_map
+    print aapp.url_map
 
-    return app
+    return aapp
 
 def setup_request_filters(app):
     #sample:fires only once before the first request to the application

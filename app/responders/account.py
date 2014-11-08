@@ -40,7 +40,7 @@ def signin():
     # if form.validate_on_submit():
     #     if User.signin(form):
     #         return redirect(url_for('home.index'))
-    #     flash(signin_failed_message)
+    # flash(signin_failed_message)
     return render_template("account/signin_form.html",form=form)
 
 @res.route('/signout')
