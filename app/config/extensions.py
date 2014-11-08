@@ -14,10 +14,10 @@ bcrypt = Bcrypt()
 login_manager = LoginManager()
 debug_toolbar = DebugToolbarExtension()
 
-#init_plugins registers the plugins with the Flask application
-#init_plugins is called from the create_app factory method
+#init_extensions registers the plugins with the Flask application
+#init_extensions is called from the create_app factory method
 #in the app.py module
-def init_plugins(app):
+def init_extensions(app):
     db.init_app(app)
     flaskuuid.init_app(app)
     bcrypt.init_app(app)
@@ -32,3 +32,4 @@ def init_plugins(app):
 @login_manager.unauthorized_handler
 def unauthorized():
     return redirect(url_for("home.index"))
+

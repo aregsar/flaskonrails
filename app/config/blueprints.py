@@ -1,6 +1,6 @@
-from responders import home
-from responders import company
-from responders import account
+from app.responders import home
+from app.responders import company
+from app.responders import account
 
 #for each view blueprint you need to add corresponding blueprint registration here
 def register_blueprints(app):

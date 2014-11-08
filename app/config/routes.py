@@ -1,6 +1,6 @@
-from responders import home
-from responders import company
-from responders import account
+from app.responders import home
+from app.responders import company
+from app.responders import account
 
 
 #optionally use this function to add application routing rules in a single location

@@ -18,7 +18,7 @@ which will set the environmet vars for that specific environment
 """
 
 
-class Config:
+class Settings:
     #use bash commands env or printenv to show current env var settings
     #use os.environ.get('ENV_VAR_NAME') to raise exception for missing env var
     #use os.environ['ENV_VAR_NAME'] to return None default for missing env var
@@ -66,5 +66,6 @@ class Config:
     # SQLALCHEMY_COMMIT_ON_TEARDOWN = True
     # SQLALCHEMY_RECORD_QUERIES = True
     #SQLALCHEMY_ECHO = True
+
 
 
